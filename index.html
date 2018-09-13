@@ -2,13 +2,64 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <title>Virtual Piano Player</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
-        <div class= "keys">
-            <kbd>A</kbd>
+        <div class="container">
+            <div class="image">
+                <div id="music-choice">
+                    <form>
+                        <input type="button" class="playsound" value="Canon in D" id="canonButton">
+                        <input type="button" class="playsound" value="Moonlight Sonata" id="moonlightButton">
+                        <input type="button" class="playsound" value="40th Symphony" id="40thButton">
+                    </form>
+                </div>
+
+                <div class="keys">
+                    <div data-key="65" class="key">
+                        <kbd>A</kbd>
+                        <span class="sound">C Key</span>
+                    </div>
+                    <div data-key="83" class="key">
+                        <kbd>S</kbd>
+                        <span class="sound">D Key</span>
+                    </div>
+                    <div data-key="68" class="key">
+                        <kbd>D</kbd>
+                        <span class="sound">E Key</span>
+                    </div>
+                    <div data-key="70" class="key">
+                        <kbd>F</kbd>
+                        <span class="sound">F Key</span>
+                    </div>
+                    <div data-key="71" class="key">
+                        <kbd>G</kbd>
+                        <span class="sound">G Key</span>
+                    </div>
+                    <div data-key="72" class="key">
+                        <kbd>H</kbd>
+                        <span class="sound">A Key</span>
+                    </div>
+                    <div data-key="74" class="key">
+                        <kbd>J</kbd>
+                        <span class="sound">B Key</span>
+                    </div>
+                </div>  
+            </div>    
         </div>
+        
+        <audio data-key="65" src="sounds/Middle_C.mp3"></audio>
+        <audio data-key="83" src="sounds/Middle_D.mp3"></audio>
+        <audio data-key="68" src="sounds/Middle_E.mp3"></audio>
+        <audio data-key="70" src="sounds/Middle_F.mp3"></audio>
+        <audio data-key="71" src="sounds/Middle_G.mp3"></audio>
+        <audio data-key="72" src="sounds/Middle_A.mp3"></audio>
+        <audio data-key="74" src="sounds/Middle_B.mp3"></audio>
+        <audio src="sounds/songs/Canon_in_D.mp3" id="canon"></audio>
+        <audio src="sounds/songs/40th_symphony.mp3" id="40th"></audio>
+        <audio src="sounds/songs/moonlight_sonata.mp3" id="moonlight"></audio>
     <script src="javascript/index.js"></script>
     </body>
 </html>
