@@ -11,10 +11,11 @@ const canonMusic = document.querySelector('audio[id="canon"]')
 const moonlightMusic = document.querySelector('audio[id="moonlight"]')
 const _40thMusic = document.querySelector('audio[id="40th"]')
 
+//key
+const key = document.getElementsByClassName('key');
 
-// use bottom event listener to find event properties of elements
 // buttons.addEventListener('click', function(event) {
-//     console.log(event.target.value);
+//     console.log(event.target);
 // })
 
 
@@ -23,67 +24,53 @@ buttons.addEventListener('click', musicPlayer);
 
 function musicPlayer(event) {
     if (event.target.id === 'moonlightButton') {
-        console.log('moonlight');
-        debugger;
         if (moonlightMusic.currentTime > 0) {
             moonlightMusic.pause();
             moonlightMusic.currentTime = 0;
-            console.log('moonlight is paused')
         }
         else if (moonlightMusic.currentTime === 0) {
             moonlightMusic.currentTime = 0;
             moonlightMusic.play();
-            console.log('moonlight is playing')
         }
     }
     else if (event.target.id === 'canonButton') {
-        console.log('canon');
-        debugger;
         if (canonMusic.currentTime > 0) {
             canonMusic.pause();
-            console.log('canon is paused')
         }
         else if (canonMusic.currentTime === 0) {
             canonMusic.currentTime = 0;
             canonMusic.play();
-            console.log('canon is playing')
         }
     }
     else if (event.target.id === '40thButton') {
-        console.log('40th Symphony');
-        debugger;
         if (_40thMusic.currentTime > 0) {
             _40thMusic.pause();
-            console.log('40th Symphony is paused')
         }
         else if (_40thMusic.currentTime === 0) {
             _40thMusic.currentTime = 0;
             _40thMusic.play();
-            console.log('40th Symphony is playing')
         }
     }
 }
 
-// function addTwoNumbers(x, y) {
-//     sum = x + y;
-//     return sum;
-// }
+window.addEventListener('keydown', function(event) {
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${event.keyCode}"]`)
+    if (!audio) {
+        return;
+    }
+    audio.currentTime = 0;
+    audio.play();
+    key.classList.add('playing');
+}) 
 
+function removeTransition(event) {
+    if (event.propertyName !== 'box-shadow'){
+        return;
+    }
+    this.classList.remove('playing');
+};
 
-// canonButton.addEventListener('click', function() {
-//     console.log(canonMusic);
-//     canonMusic.currentTime= 0;
-//     canonMusic.play();
-// })
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
-// moonlightButton.addEventListener('click', function() {
-//     console.log(moonlightMusic);
-//     moonlightMusic.currenTime=0;
-//     moonlightMusic.play();
-// })
-
-// _40thButton.addEventListener('click', function() {
-//     console.log(_40thMusic);
-//     _40thMusic.currentTime=0;
-//     _40thMusic.play();
-// })

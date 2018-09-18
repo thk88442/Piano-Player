@@ -66,6 +66,13 @@
     margin: .2rem;
     height: 100%;
     width: 7%;
+    transition: all 0.25s;
+}
+
+.playing {
+    transform: scale(0.95);
+    border-color: rgba(180, 18, 229, 0.87);
+    box-shadow: 0px .5rem 1rem .5rem rgba(27, 35, 230, 0.91);
 }
 
 kbd {
